@@ -1,14 +1,29 @@
-# Site settings
-title: Jacob|Blog
-email: your-email@domain.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
-twitter_username: JJ_Jacob
-github_username:  Jacob110
+# Dependencies
+markdown:            redcarpet
+highlighter:         pygments
 
-# Build settings
-markdown: kramdown
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+
+# Setup
+title:               Jacob
+tagline:             Jacob's blogs
+description:         '明天是你剩余人生的第一天'
+url:                 /
+baseurl:             /
+paginate:            8
+
+# About/contact
+author:
+  name:              Jacob Yan
+  github:            Jacob110
+  disqus:            gansteed
+
+# Custom vars
+#saying:              'Stand on the shoulders of giants, observing details of the world.'
+
+# redcarpet
+redcarpet:
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "strikethrough"]
