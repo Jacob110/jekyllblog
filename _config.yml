@@ -1,29 +1,66 @@
-# Dependencies
-markdown:            redcarpet
-highlighter:         pygments
+title:            Jacob's Blog
+comments: true
+share: true
+#Your site's domain goes here. Leave localhost server or blank when working locally.
+url:           
+relative_permalinks: true
 
-# Permalinks
-#
-# Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
+comments :
+    provider : duoshuo
+    duoshuo : 
+      short_name : jacob110
 
-# Setup
-title:               Jacob
-tagline:             Jacob's blogs
-description:         '明天是你剩余人生的第一天'
-url:                 /
-baseurl:             /
-paginate:            8
+# Owner/author information
+owner:
+  name:           Jacob
+  bio:            "明天是你剩余人生的第一天"
+  email:          yjj.jacob@gmail.com
+  avatar:         myavatar.jpg
+  # Social networking links used in footer. Update and remove as you like.
+  twitter:        JJ_Jacob
+  github:         Jacob110
+  
 
-# About/contact
-author:
-  name:              Jacob Yan
-  github:            Jacob110
-  disqus:            gansteed
+# Background image to be tiled on all pages
+background: stardust.png
 
-# Custom vars
-#saying:              'Stand on the shoulders of giants, observing details of the world.'
+# Analytics and webmaster tools stuff goes here
+google_analytics:   UA-46212341-5
+google_verify:      
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+bing_verify:         
 
-# redcarpet
+# Links to include in top navigation
+# For external links add external: true
+
+# http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone:    Asia/Shanghai
+future:      true
+pygments:    true
+markdown:    kramdown
+
 redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "strikethrough"]
+  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data", "strikethrough","superscript"]
+
+# https://github.com/mojombo/jekyll/wiki/Permalinks
+permalink:   /:categories/:year/:month/:day/:title 
+
+# Amount of post to show on home page
+paginate: 5
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  use_coderay: false
+
+  coderay:
+    coderay_line_numbers: nil
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: class
+
+include: [".htaccess"]
+exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]

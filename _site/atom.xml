@@ -1,119 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
- <title>Jacob</title>
- <link href="//atom.xml" rel="self"/>
- <link href="//"/>
- <updated>2015-08-09T20:51:00+08:00</updated>
- <id>/</id>
+ <title>Jacob's Blog</title>
+ <link href="/atom.xml" rel="self"/>
+ <link href="/"/>
+ <updated>2015-08-15T12:14:54+00:00</updated>
+ <id></id>
  <author>
-   <name>Jacob Yan</name>
+   <name></name>
    <email></email>
  </author>
 
  
  <entry>
-   <title>Java Collection</title>
-   <link href="//java/2015/08/09/java-collection/"/>
-   <updated>2015-08-09T19:21:44+08:00</updated>
-   <id>//java/2015/08/09/java-collection</id>
-   <content type="html">&lt;h1 id=&quot;java-集合框架&quot;&gt;Java 集合框架&lt;/h1&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;Java集合是Java 提供的工具包，包含了常用的数据结构：集合、链表、队列、栈、数组、映射等。集合工具包的位置是 &lt;code&gt;java.util.*&lt;/code&gt;&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;Java 集合主要可以划分为四个部分：&lt;strong&gt;List&lt;/strong&gt;列表、&lt;strong&gt;Set&lt;/strong&gt;集合、&lt;strong&gt;Map&lt;/strong&gt;映射、工具类(Iterator迭代器、Enumerattion枚举类、Arrays和Collections)。&lt;/p&gt;
-
-&lt;p&gt;集合框架分为两大类：&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;Collection&lt;/li&gt;
-&lt;li&gt;List
-&amp;gt; * LinkedList
-&amp;gt; * ArrayList
-&amp;gt; * Vector
-&amp;gt; * Stack&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Set
-&amp;gt; * HashSet
-&amp;gt; * TreeSet&lt;/li&gt;
-&lt;/ol&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Map
-&amp;gt; *  HashMap
-&amp;gt; * TreeMap&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/blockquote&gt;
-
-&lt;hr&gt;
-
-&lt;h2 id=&quot;list-集合&quot;&gt;List 集合&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;List&lt;/code&gt;集合特有的迭代器。&lt;code&gt;ListIterator&lt;/code&gt;是&lt;code&gt;Iterator&lt;/code&gt;的子接口。
-在迭代的时，不可以通过集合对象的方法操作集合中的元素。因为会发生&lt;code&gt;ConcurrentModifictionException&lt;/code&gt;异常&lt;/p&gt;
-
-&lt;p&gt;用迭代器操作集合元素时，只能对元素进行判断，取出和删除操作。
-&lt;strong&gt;&lt;code&gt;List&lt;/code&gt; 集合判断元素是否相同，依据的时 元素的 &lt;code&gt;equals&lt;/code&gt; 方法&lt;/strong&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;1-arraylist&quot;&gt;1. ArrayList&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;线程不安全&lt;/li&gt;
-&lt;li&gt;遍历方式可以用 &lt;code&gt;for&lt;/code&gt; &lt;code&gt;iterator&lt;/code&gt; &lt;code&gt;get(index)&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;2-vector&quot;&gt;2. Vector&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;线程安全&lt;/li&gt;
-&lt;li&gt;遍历方式除了 上面 &lt;code&gt;ArrayList&lt;/code&gt; 的三种以为，还有&lt;code&gt;Enumeration&lt;/code&gt;遍历,如下：&lt;/li&gt;
-&lt;/ul&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span class=&quot;n&quot;&gt;Vector&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;vec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Vector&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Enumeration&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;enu&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;elements&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(),&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;hasMoreElements&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();){&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;Enumeration&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;vec&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;nextElement&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;();&lt;/span&gt;
-&lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;h3 id=&quot;3-linkedlist&quot;&gt;3. LinkedList&lt;/h3&gt;
-
-&lt;h2 id=&quot;set集合&quot;&gt;Set集合&lt;/h2&gt;
-
-&lt;p&gt;元素无序，存入和取出的顺序不一定一致，元素不可以重复。&lt;/p&gt;
-
-&lt;h3 id=&quot;1-hashset&quot;&gt;1.HashSet&lt;/h3&gt;
-
-&lt;p&gt;底层数据结构是&lt;strong&gt;哈希表&lt;/strong&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;HashSet&lt;/code&gt; 是如何拨正元素唯一性的呢？
-通过&lt;code&gt;hashCode&lt;/code&gt; 和 &lt;code&gt;equals&lt;/code&gt; 来完成。
-如果元素的 &lt;code&gt;hashCode&lt;/code&gt;值相同，才会去判断&lt;code&gt;equals&lt;/code&gt; 是否为 true。否则不会调用 &lt;code&gt;equals&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;判断元素是否存在，以及删除等操作，依赖的方法是元素的&lt;code&gt;hashCode&lt;/code&gt; 和 &lt;code&gt;equals&lt;/code&gt; 方法。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;2-treeset&quot;&gt;2.TreeSet&lt;/h3&gt;
-
-&lt;ul&gt;
-&lt;li&gt;可以对Set集合中的元素进行自然排序。&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;TreeSet&lt;/code&gt; 中的元素(&lt;code&gt;Object&lt;/code&gt;) 必须是可排序的，及必须实现 &lt;code&gt;compareTo&lt;/code&gt; 方法&lt;/li&gt;
-&lt;li&gt;排序时，当主要条件相同时，一定要判断下次要条件&lt;/li&gt;
-&lt;li&gt;底层数据结构是 &lt;strong&gt;&lt;code&gt;二叉树&lt;/code&gt;&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;保证元素唯一性的依据：&lt;code&gt;compareTo&lt;/code&gt;方法 &lt;code&gt;return&lt;/code&gt; &lt;code&gt;0&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
- </entry>
- 
- <entry>
    <title>Welcome to Jekyll!</title>
-   <link href="//jekyll/2015/08/08/welcome-to-jekyll/"/>
-   <updated>2015-08-08T19:21:44+08:00</updated>
-   <id>//jekyll/2015/08/08/welcome-to-jekyll</id>
+   <link href="/jekyll/2015/08/08/welcome-to-jekyll"/>
+   <updated>2015-08-08T11:21:44+00:00</updated>
+   <id>/jekyll/2015/08/08/welcome-to-jekyll</id>
    <content type="html">&lt;p&gt;You’ll find this post in your &lt;code&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
 
 &lt;p&gt;To add new posts, simply add a file in the &lt;code&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
@@ -127,6 +30,7 @@
 &lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &amp;#39;Hi, Tom&amp;#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://github.com/jekyll/jekyll-help&quot;&gt;Jekyll’s dedicated Help repository&lt;/a&gt;.&lt;/p&gt;
+
 </content>
  </entry>
  

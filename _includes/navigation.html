@@ -1,0 +1,33 @@
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/"><i class="glyphicon glyphicon-home"></i>Home</a></li>
+		<li>
+			<a href="#"><i class="glyphicon glyphicon-user"></i>About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="{{ site.url }}/images/{{ site.owner.avatar }}" alt="{{ site.owner.name }} photo" class="author-photo">
+					<h4>{{ site.owner.name }}</h4>
+					<p>{{ site.owner.bio }}</p>
+				</li>
+				
+				{% if site.owner.email %}<li>
+					<a href="mailto:{{ site.owner.email }}"><i class="glyphicon glyphicon-envelope"></i> Email</a>
+				</li>{% endif %}
+				{% if site.owner.twitter %}<li>
+					<a href="http://twitter.com/{{ site.owner.twitter }}"><i class="icon-twitter"></i> Twitter</a>
+				</li>{% endif %}
+				{% if site.owner.github %}<li>
+					<a href="http://github.com/{{ site.owner.github }}"><i class="icon-github"></i> GitHub</a>
+				</li>{% endif %}
+				
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>			
+			<li><a href="{{ site.url }}/archive/"><i class="glyphicon glyphicon-arrow-right"></i>All Posts</a></li>
+			<li><a href="{{ site.url }}/tags/"><i class="glyphicon glyphicon-tags"></i>All Tags</a></li>
+			<li><a href="{{ site.url }}/categories/"><i class="glyphicon glyphicon-folder-open"></i>All Categories</a></li>
+		</li>
+		{% for link in site.links %}<li>{% if link.external %}<a href="{{ link.url }}">{{ link.title }}</a>{% else %}<a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a>{% endif %}</li>{% endfor %}
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
